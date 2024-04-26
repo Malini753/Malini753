@@ -1,0 +1,161 @@
+P1//Addition of two numbers with functions in java
+---------------------------------------------------
+
+public class Main {
+  
+public static void addition(int n1,int n2)
+{
+	int result;
+	result=n1+n2;
+	System.out.println("Addition of two numbers :");
+        System.out.println("result= "+result);
+}
+  
+    public static void main(String[] args) {
+    //Calling method (Usage of method)
+	addition(50,50);
+	addition(100,100);
+	addition(150,150);
+  }
+}
+
+Output
+------
+Addition of two numbers :
+result= 100
+Addition of two numbers :
+result= 200
+Addition of two numbers :
+result= 300
+
+
+
+
+P2)Print (a+b)^2 with functions
+------------------------------
+
+class AsquareBsquare {
+    public static void main(String[] args) {
+        a(2,3);
+        a(5,5);
+        a(10,10);
+    }
+
+public  static void a(int a,int b)
+{
+        int result;
+        result=(a*a+b*b+2*a*b);
+        System.out.println("A Square + B Square +2AB=");
+        System.out.println("result= "+result);
+}
+}
+
+
+Output
+------
+
+A Square + B Square +2AB=
+result= 25
+A Square + B Square +2AB=
+result= 100
+A Square + B Square +2AB=
+result= 400
+
+PS3: Print (a+b)^3 with functions.
+--------------------
+
+
+
+class AsquareBsquare {
+    public static void main(String[] args) {
+        asquare(3,3); 
+        asquare(5,5);  
+        asquare(6,6);  
+    }
+public static void asquare(int a,int b)  
+{
+
+        float result;
+        result = (a*a*a)+(b*b*b)+(3*(a*a)*b)+(3*a*(b*b));
+        System.out.println("A Square + B Square +3AB=");
+        System.out.println("result= "+result);
+}
+}
+
+
+Output
+------
+A Square + B Square +3AB=
+result= 216.0
+A Square + B Square +3AB=
+result= 1000.0
+A Square + B Square +3AB=
+result= 1728.0
+
+PS4: Print area of circle with functions
+-----------------------------------------
+
+class AreaOfCircle {
+    public static void main(String[] args) {
+      circle(4);
+      circle(5);
+      circle(7);
+      
+    }
+public static void circle(float radius) 
+{
+        float pi=(float)3.14;
+        float result;
+        radius=4;
+        result=pi*radius*radius;
+        System.out.println("Area of the Circle is:");
+        System.out.println("result= "+result);
+    
+}
+}
+
+
+output
+------
+
+Area of the Circle is:
+result= 50.24
+Area of the Circle is:
+result= 50.24
+Area of the Circle is:
+result= 50.24
+
+
+PS5:Print simple interest with functions
+-----------------------------------------
+
+
+class SimpleIntrest {
+    public static void main(String[] args) {
+        intrests(1000,50,12);
+       intrests(2000,60,15);
+       intrests(3000,70,16);
+        
+
+}
+public static void intrests(float p, float t, float r)
+{   
+        float interest; 
+    	interest = (p*t*r)/100;
+	   System.out.println("intrest= "+interest);
+    
+}
+    
+}
+
+
+output
+-------
+
+intrest= 6000.0
+intrest= 18000.0
+intrest= 33600.0
+
+
+
+

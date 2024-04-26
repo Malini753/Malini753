@@ -1,0 +1,98 @@
+1) Creating a table for employee details.
+------------------------------------------ 
+
+CREATE TABLE employee
+  (
+     id           NUMBER(10) PRIMARY KEY,
+     NAME         CHAR(10)   NOT NULL,
+     age          NUMBER     NOT NULL CHECK(age>0 AND age<50),
+     address      CHAR(10)   NOT NULL,
+     salary       FLOAT      NOT NULL CHECK(salary>0 AND salary<30000),
+     joinedDate   DATE       NOT NULL,
+     createdDate  DATE       DEFAULT SYSDATE,
+     modifiedDate DATE       DEFAULT SYSDATE
+  );
+
+
+--->>inserting values into employee table
+------------------------------------------
+
+
+insert into employee(id,name,age,address,salary,joinedDate,createdDate,modifiedDate  ) values (1,'Ramesh',32,'Ahmedabad',2000.00,to_date('11-01-1993','dd-mm-yyyy') ,default sysdate ,default sysdate);
+insert into employee(id,name,age,address,salary,joinedDate,createdDate,modifiedDate) values (2,'Khilan',25,'Delhi',1500.00,to_date('11-01-1993','dd-mm-yyyy') ,default sysdate ,default sysdate);
+
+commit;
+
+2)Creating a table to store the persons information
+--------------------------------------------------
+CREATE TABLE persons
+  (
+     personId      NUMBER(10) PRIMARY KEY,
+     LASTNAME      CHAR(10)   NOT NULL,
+     FIRSTNAME	   Char(10)   NOT NULL,
+     Age           NUMBER     NOT NULL CHECK(age>0 AND age<50),
+     dateofbirth   DATE       NOT NULL,
+     createdDate   DATE       DEFAULT SYSDATE,
+     modifiedDate  DATE       DEFAULT SYSDATE
+  ); 
+
+--->>inserting data into persons table
+---------------------------------------
+
+insert into persons(personID,LASTNAME,FIRSTNAME,age,dateofbirth,createdDate,modifiedDate) values (1,'Hansen','OLa',30 ,to_date('11-01-1993','dd-mm-yyyy') ,default sysdate ,default sysdate);
+
+insert into persons(personID,LASTNAME,FIRSTNAME,age,dateofbirth,createdDate,modifiedDate) values (2,'Svendson','Tove',23,to_date('15-01-1996','dd-mm-yyyy') ,default sysdate ,default sysdate);
+
+insert into persons(personID,LASTNAME,FIRSTNAME,age,dateofbirth,createdDate,modifiedDate) values (3,'Pettersen','Kari',20,to_date('15-01-1999','dd-mm-yyyy') ,default sysdate ,default sysdate);
+
+
+
+commit;
+
+
+
+3)Orders Table
+-----------------
+
+CREATE TABLE orders
+  (
+     orderid     NUMBER(10) PRIMARY KEY,
+     ordernumber NUMBER     NOT NULL,
+     personid    NUMBER     REFERENCES persons(personid),
+     deliveryDate   DATE       NOT NULL,
+     createdDate   DATE       DEFAULT SYSDATE,
+     modifiedDate  DATE       DEFAULT SYSDATE
+  ); 
+
+
+--->>inserting data into orders table
+---------------------------------------
+insert into orders(orderid,ordernumber,personid,deliveryDate,createdDate,modifiedDate) values (2,44678,3,to_date('15-01-1999','dd-mm-yyyy') ,default sysdate ,default sysdate);
+insert into orders(orderid,ordernumber,personid,deliveryDate,createdDate,modifiedDate) values (3,22456,2,to_date('16-02-1998','dd-mm-yyyy') ,default sysdate ,default sysdate);
+insert into orders(orderid,ordernumber,personid,deliveryDate,createdDate,modifiedDate) values (4,24562,1,to_date('17-03-1997','dd-mm-yyyy') ,default sysdate ,default sysdate);
+
+commit;
+error comma missing;
+
+4) Creating a table for offersin2024 details.
+------------------------------------------ 
+
+CREATE TABLE offersin2024
+  (
+     id           NUMBER PRIMARY KEY,
+     NAME         CHAR(10)   NOT NULL,
+     startDate    DATE       NOT NULL,
+     endDate      DATE       NOT NULL,  
+     createdDate  DATE       DEFAULT SYSDATE,
+     modifiedDate DATE       DEFAULT SYSDATE
+  );
+
+create sequence offersin2024_sequence start with 1 increment by 1 minvalue 0 maxvalue 60 cycle;
+
+--->>inserting data
+------------------
+
+insert into offersin2024(id,name,personid,startdate,enddate,createdDate,modifiedDate) values (offersin2024_sequence,flat,3,to_date('11-03-2024','dd-mm-yyyy') ,to_date('16-03-2024','dd-mm-yyyy'),default sysdate ,default sysdate);
+
+
+

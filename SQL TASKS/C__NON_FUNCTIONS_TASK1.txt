@@ -1,0 +1,189 @@
+1)ADDITION OF TWO NUMBERS
+-------------------------
+
+#include <stdio.h>
+
+int main() {
+        int a,b,result;
+        a=50;
+        b=50;
+        result=a+b;
+        printf("Addition on two numbers\n");
+        printf("%d",result);
+        a=150;
+        b=150;
+        result=a+b;
+        printf("Addition on two numbers\n");
+        printf("%d",result);
+        a=100;
+        b=100;
+        result=a+b;
+        printf("Addition on two numbers\n");
+        printf("%d",result);
+
+}
+
+OUTPUT
+------
+Addition on two numbers
+100
+Addition on two numbers
+300
+Addition on two numbers
+200
+
+
+PS2: Print (a+b)^2 
+-------------------
+
+
+#include <stdio.h>
+
+int main() {
+    
+        int a,b,result;
+        a=2;
+        b=3;
+        result=(a*a+b*b+2*a*b);
+        printf("A Square + B Square +2AB=\n");
+        printf("%d\n ",result);
+        a=5;
+        b=5;
+        result=(a*a+b*b+2*a*b);
+        printf("A Square + B Square +2AB=\n");
+        printf("%d \n",result);
+        a=7;
+        b=9;
+        result=(a*a+b*b+2*a*b);
+        printf("A Square + B Square +2AB=\n");
+        printf("%d \n",result);
+        
+     
+}
+
+OUTPUT
+-------
+A Square + B Square +2AB=
+25
+ A Square + B Square +2AB=
+100 
+A Square + B Square +2AB=
+256 
+
+
+
+PS4: Print (a+b)^3
+------------------
+
+#include <stdio.h>
+
+int main() {
+    
+        int a,b,result;
+        a=2;
+        b=3;
+        result = (a*a*a)+(b*b*b)+(3*(a*a)*b)+(3*a*(b*b));
+        printf("A Square + B Square +3AB=\n");
+        printf("%d\n ",result);
+        a=5;
+        b=5;
+        result = (a*a*a)+(b*b*b)+(3*(a*a)*b)+(3*a*(b*b));
+        printf("A Square + B Square +3AB=\n");
+        printf("%d \n",result);
+        a=7;
+        b=9;
+        result = (a*a*a)+(b*b*b)+(3*(a*a)*b)+(3*a*(b*b));
+        printf("A Square + B Square +3AB=\n");
+        printf("%d \n",result);
+        
+     
+}
+
+OUTPUT
+------A Square + B Square +3AB=
+125
+ A Square + B Square +3AB=
+1000 
+A Square + B Square +3AB=
+4096 
+
+
+PS5: Print area of circle
+
+-------------------------
+
+
+#include <stdio.h>
+
+int main() {
+    
+float pi=(float)3.14;
+        float result;
+        int radius;
+        radius=4;
+        result=pi*radius*radius;
+        printf("Area of the Circle is:\n");
+        printf("%f\n",result);
+        radius=5;
+        result=pi*radius*radius;
+        printf("Area of the Circle is:\n");
+        printf("%f\n",result);
+        radius=8;
+        result=pi*radius*radius;
+        printf("Area of the Circle is:\n");
+        printf("%f\n",result);
+     
+}
+
+output
+------
+
+Area of the Circle is:
+50.240002
+Area of the Circle is:
+78.500000
+Area of the Circle is:
+200.960007
+
+
+PS6: Print simple interest
+--------------------------
+
+
+#include <stdio.h>
+
+int main() {
+    
+
+  	float p,t,r,interest; 
+	p=100000;
+	t=1;
+	r=12;
+	interest = (p*t*r)/100;
+	printf("simple intrest\n");
+	printf("%f\n ",interest);
+	p=200000;
+	t=2;
+	r=12;
+	interest = (p*t*r)/100;
+	printf("simple intrest\n");
+	printf("%f\n ",interest);
+	p=200000;
+	t=1;
+	r=13;
+	interest = (p*t*r)/100;
+	printf("simple intrest\n");
+	printf("%f\n ",interest);
+
+}
+
+output
+-------
+
+simple intrest
+12000.000000
+ simple intrest
+48000.000000
+ simple intrest
+26000.000000
+

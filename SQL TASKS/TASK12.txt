@@ -1,0 +1,48 @@
+task12===
+==============================
+Scalar sub queries (Single Row)
+==============================
+--Q1. Write a query to display highest salary from all employee.
+     select max(salary) from employee;
+
+MAX(SALARY)
+-----------
+       6000
+
+--Q2.Write a query to display employee name who is taking highest salary.
+select name from employee where salary=(select max(salary) from employee);
+NAME
+------
+Mack
+
+Task1:   Write a query to display employee name who is taking lowest salary.
+
+select name from employee where salary=(select min(salary) from employee);
+NAME
+------
+Jack
+Mike
+Hannah
+
+Task2: Write a query to display employee name whose salary is less than the average salary of all employees.
+SQL> select name from employee where salary<(select avg(salary from employee);
+NAME
+------
+Jack
+Jack
+Tom
+Leo
+Mike
+Hannah
+
+Task3: Write a query to display employee name whose salary is greater than the average salary of all employees.
+SQL> select name from employee where salary>(select avg(salary) from employee);
+
+NAME
+------
+Mack
+Peter
+Roger
+Paul
+
+

@@ -1,0 +1,125 @@
+TASK 7
+CREATE TABLE employees
+  (
+     name   VARCHAR(10) NOT NULL,
+     age    NUMBER NOT NULL CHECK(age>0 AND age<100),
+     salary NUMBER NOT NULL CHECK(salary>0),
+     dept   VARCHAR(10) NOT NULL,
+     city   VARCHAR(10) NOT NULL,
+     userid VARCHAR(15) PRIMARY KEY,
+     pswd   VARCHAR(10) NOT NULL,
+     mailid VARCHAR(30) NOT NULL UNIQUE,
+	 gender VARCHAR(6) NOT NULL
+  ); 
+insert into employees values('L Ajay',31,24000,'cse','hyd','ajay','qwerty','ajay@gmail.com','male');
+insert into employees values('K Depak',33,56000,'eee','pune','depak','12345','depak@gmail.com','male');
+insert into employees values('H Venu',28,44000,'cse','hyd','venu','vn55','venu1@gmail.com','male');
+insert into employees values('D Sanjay',36,50000,'ece','chennai','sanju','uh1190','sanjay@gmail.com','male');
+insert into employees values('T Vijaya',41,78000,'eee','pune','vijaya','vj7711','vijju@gmail.com','female');
+insert into employees values('L Siri',29,44000,'ece','pune','siri','siri11','siri@gmail.com','female');
+insert into employees values('S Zuned',31,26000,'cse','hyd','zuned','zunnu768','zuned@gmail.com','male');
+insert into employees values('M Saziya',26,34000,'cse','hyd','sazia','guru','sazia@gmail.com','female');
+insert into employees values('M Rohith',26,50000,'ece','chennai','rohit','rohit11','rohit@gmail.com','male');
+insert into employees values('P Vedha',31,88000,'cse','hyd','vedha','guessit','vedha@gmail.com','female');
+commit;
+select * from employees;
+
+
+
+
+
+Requirement1:Show name and age of all employees,  whose salary is below 40000
+---------------------------------------------------------------------------
+
+Qurey:
+select name,age from employees where salary < 40000;
+
+Requirement2:Show name,email of employees, whose salary is above 40000
+------------------------------------------------------------------------
+qurey:
+select name,mailid from employees where salary<40000;
+
+Requirement3:Show all employees details whose salary is 50000 and above
+------------------------------------------------------------------------
+qurey:
+select *from employees where salary>=50000;
+
+Requirement4:Show all employees details whose salary is 50000 and below
+-----------------------------------------------------------------------
+qurey:
+select *from employees where salary<=50000;
+
+Requirement5:Show all employees details whose salary is 50000 
+-------------------------------------------------------------
+qurey:
+select *from employees where salary<=50000 and salary>=50000; 
+
+Requirement6:Show all employees details whose salary is other than 50000 
+-----------------------------------------------------------------------
+qurey:
+select *from employees where salary!=50000; 
+
+Requirement7:Show all employees details whose belongs to hyd city
+-----------------------------------------------------------------
+qurey:
+select *from employees where city='hyd'; 
+
+Requirement8:Show all employees details whose belongs to eee department
+------------------------------------------------------------------------
+qurey:
+select *from employees where  dept='eee'; 
+
+Requirement9:Show all employees details whose belongs to pune city 
+------------------------------------------------------------------
+qurey:
+select *from employees where city='pune'; 
+
+Requirement10:Show all employees details whose belongs to chennai  city
+-----------------------------------------------------------------------
+qurey:
+select *from employees where city='chennai'; 
+
+Requirement11:Show all employees details whose belongs to cse department 
+------------------------------------------------------------------------
+qurey:
+select *from employees where  dept='cse'; 
+
+Requirement12:Show sanjay details 
+---------------------------------
+select *from employees where userid='sanju';
+
+
+
+
+Working with Logical operators(and,or,not) in SQL:
+========================================================
+	
+R1:	Show all employees details whose belongs to hyd and age is below 30
+----------------------------------------------------------------------------
+qurey:
+
+select *from employees where city='hyd' and age<30;
+
+
+R2:	Show all employees details whose salares in between 40k and 50k
+--------------------------------------------------------------------
+qurey:
+
+select *from employees where salary>=40000 and salary<=50000;
+
+Working with Regular expressions:
++++++++++++++++++++++++++++++++++++
+--show all employees whose name ending with 'ay' word
+------------------------------------------------------
+qurey:
+select *from employees where name like '%ay%';
+
+--show all employees whose dept starting with 'e' letter
+--------------------------------------------------------
+qurey:
+select *from employees where dept like 'e%';
+
+--show all employees whose  having 'e' letter any where
+-------------------------------------------------------
+qurey:
+select *from employees where userid like '%e%';

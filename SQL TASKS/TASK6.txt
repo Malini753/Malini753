@@ -1,0 +1,108 @@
+CREATE TABLE employees
+  (
+     name   VARCHAR(10) NOT NULL,
+     age    NUMBER NOT NULL CHECK(age>0 AND age<100),
+     salary NUMBER NOT NULL CHECK(salary>0),
+     dept   VARCHAR(10) NOT NULL,
+     city   VARCHAR(10) NOT NULL,
+     userid VARCHAR(15) PRIMARY KEY,
+     pswd   VARCHAR(10) NOT NULL,
+     mailid VARCHAR(30) NOT NULL UNIQUE,
+	 gender VARCHAR(6) NOT NULL
+  ); 
+insert into employees values('L Ajay',31,24000,'cse','hyd','ajay','qwerty','ajay@gmail.com','male');
+insert into employees values('K Depak',33,56000,'eee','pune','depak','12345','depak@gmail.com','male');
+insert into employees values('H Venu',28,44000,'cse','hyd','venu','vn55','venu1@gmail.com','male');
+insert into employees values('D Sanjay',36,50000,'ece','chennai','sanju','uh1190','sanjay@gmail.com','male');
+insert into employees values('T Vijaya',41,78000,'eee','pune','vijaya','vj7711','vijju@gmail.com','female');
+insert into employees values('L Siri',29,44000,'ece','pune','siri','siri11','siri@gmail.com','female');
+insert into employees values('S Zuned',31,26000,'cse','hyd','zuned','zunnu768','zuned@gmail.com','male');
+insert into employees values('M Saziya',26,34000,'cse','hyd','sazia','guru','sazia@gmail.com','female');
+insert into employees values('M Rohith',26,50000,'ece','chennai','rohit','rohit11','rohit@gmail.com','male');
+insert into employees values('P Vedha',31,88000,'cse','hyd','vedha','guessit','vedha@gmail.com','female');
+commit;
+select * from employees;
+
+
+
+TASK6.1:
+--------
+
+Requirement: Show all employees names   (Reading one column value)
+
+query
+-----
+select name from employees;
+
+
+Requirement: Show all employees mailid	(Reading one column value)
+
+query
+-----
+select mailid from employees;
+
+Requirement: Show all employees userid and pswd (Reading more than one column values)
+
+query
+-----
+select userid,pswd from employees;
+
+
+Requirement: Show all employees userid,salary and dept(Reading more than one column values)
+
+query
+-----
+select  userid,salary,dept from employees;
+
+
+Requirement: Show all employee details
+
+query
+-----
+
+select *from employees;
+
+
+
+
+
+Requirement1: Show highest salary in employees table
+
+query
+-----
+select max(salary) from employees;
+
+Requirement2: Show lowest salary in employees table
+query
+-----
+select min(salary) from employees;
+
+Requirement3: Show sum of all salares in employees table
+
+query
+-----
+select sum(salary) from employees;
+
+Requirement4: Show average of all salares in employees table
+
+query
+-----
+select avg(salary) from employees;
+
+Requirement5: Show number of rows in employees table
+
+query
+-----
+select count(*) from employees;
+
+Requirement6: Show oldest employee age in employees table
+
+query
+-----
+select min(age) from employees;
+
+Requirement7: Show younger employee age in employees table
+
+query
+-----
+select max(age) from employees;

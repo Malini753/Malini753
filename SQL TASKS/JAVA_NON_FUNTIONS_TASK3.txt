@@ -1,0 +1,183 @@
+jAVA _NON_ FUNCTIONS TASK
+------------------------
+
+//PS1: Addition of 2 numbers  in java 
+------------------------------------
+
+
+class AdditionOfTwoNum {
+    public static void main(String[] args) {
+        
+        int a,b,result;
+        a=50;
+        b=50;
+        result=a+b;
+        System.out.println("Addition on two numbers");
+        System.out.println("result= "+result);
+        a=100;
+        b=100;
+        result=a+b;
+        System.out.println("Addition on two numbers");
+        System.out.println("result= "+result);
+        a=150;
+        b=150;
+        result=a+b;
+        System.out.println("Addition on two numbers");
+        System.out.println("result= "+result);
+        
+    }
+}
+
+OUTPUT
+------
+Addition on two numbers
+result= 100
+Addition on two numbers
+result= 200
+Addition on two numbers
+result= 300
+
+
+
+PS2: Print (a+b)^2 
+------------------
+
+class AsquareBsquare {
+    public static void main(String[] args) {
+        int a,b,result;
+        a=2;
+        b=3;
+        result=(a*a+b*b+2*a*b);
+        System.out.println("A Square + B Square +2AB=");
+        System.out.println("result= "+result);
+        a=5;
+        b=5;
+        result=(a*a+b*b+2*a*b);
+        System.out.println("A Square + B Square +2AB=");
+        System.out.println("result= "+result);
+        a=10;
+        b=10;
+        result=(a*a+b*b+2*a*b);
+        System.out.println("A Square + B Square +2AB=");
+        System.out.println("result= "+result);
+    }
+}
+
+
+Output
+------A Square + B Square +2AB=
+result= 25
+A Square + B Square +2AB=
+result= 100
+A Square + B Square +2AB=
+result= 400
+
+PS3: Print (a+b)^3
+--------------------
+
+
+class AsquareBsquare {
+    public static void main(String[] args) {
+        int a,b,result;
+        a=2;
+        b=3;
+        result = (a*a*a)+(b*b*b)+(3*(a*a)*b)+(3*a*(b*b));
+        System.out.println("A Square + B Square +2AB=");
+        System.out.println("result= "+result);
+        a=5;
+        b=5;
+        result = (a*a*a)+(b*b*b)+(3*(a*a)*b)+(3*a*(b*b));
+        System.out.println("A Square + B Square +2AB=");
+        System.out.println("result= "+result);
+        a=10;
+        b=10;
+        result = (a*a*a)+(b*b*b)+(3*(a*a)*b)+(3*a*(b*b));
+        System.out.println("A Square + B Square +2AB=");
+        System.out.println("result= "+result);
+    }
+}
+
+
+
+Output
+-------
+A Square + B Square +2AB=
+result= 125
+A Square + B Square +2AB=
+result= 1000
+A Square + B Square +2AB=
+result= 8000
+
+
+PS4: Print area of circle using non functions
+--------------------------------------------
+
+class AreaOfCircle {
+    public static void main(String[] args) {
+        float pi=(float)3.14;
+        float result;
+        int radius;
+        radius=4;
+        result=pi*radius*radius;
+        System.out.println("Area of the Circle is:");
+        System.out.println("result= "+result);
+        radius=5;
+        result=pi*radius*radius;
+        System.out.println("Area of the Circle is:");
+        System.out.println("result= "+result);
+        radius=6;
+        result=pi*radius*radius;
+        System.out.println("Area of the Circle is:");
+        System.out.println("result= "+result);
+    }
+}
+
+Output
+------
+Area of the Circle is:
+result= 50.24
+Area of the Circle is:
+result= 78.5
+Area of the Circle is:
+result= 113.04
+
+
+PS5:Print simple interest without functions
+-----------------------------------------
+
+
+class HelloWorld {
+    public static void main(String[] args) {
+
+  	float p,t,r,interest; 
+	p=100000;
+	t=1;
+	r=12;
+	interest = (p*t*r)/100;
+	System.out.println("intrest= "+interest);
+    p=100000;
+	t=50;
+	r=14;
+	interest = (p*t*r)/100;
+	System.out.println("intrest= "+interest);
+    p=100000;
+	t=69;
+	r=16;
+	interest = (p*t*r)/100;
+	System.out.println("intrest= "+interest);
+	
+}
+
+    
+}
+
+
+
+Output
+------
+
+intrest= 12000.0
+intrest= 700000.0
+intrest= 1104000.0
+
+

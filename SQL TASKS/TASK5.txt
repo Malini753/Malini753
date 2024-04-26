@@ -1,0 +1,164 @@
+
+
+Task5.1 on employees table:
+--------------------------
+
+
+CREATE TABLE employees
+  (
+     name   VARCHAR(10) NOT NULL,
+     age    NUMBER NOT NULL CHECK(age>0 AND age<100),
+     salary NUMBER NOT NULL CHECK(salary>0),
+     dept   VARCHAR(10) NOT NULL,
+     city   VARCHAR(10) NOT NULL,
+     userid VARCHAR(15) PRIMARY KEY,
+     pswd   VARCHAR(10) NOT NULL,
+     mailid VARCHAR(30) NOT NULL UNIQUE,
+	 gender VARCHAR(6) NOT NULL
+  ); 
+insert into employees values('L Ajay',31,24000,'cse','hyd','ajay','qwerty','ajay@gmail.com','male');
+insert into employees values('K Depak',33,56000,'eee','pune','depak','12345','depak@gmail.com','male');
+insert into employees values('H Venu',28,44000,'cse','hyd','venu','vn55','venu1@gmail.com','male');
+insert into employees values('D Sanjay',36,50000,'ece','chennai','sanju','uh1190','sanjay@gmail.com','male');
+insert into employees values('T Vijaya',41,78000,'eee','pune','vijaya','vj7711','vijju@gmail.com','female');
+insert into employees values('L Siri',29,44000,'ece','pune','siri','siri11','siri@gmail.com','female');
+insert into employees values('S Zuned',31,26000,'cse','hyd','zuned','zunnu768','zuned@gmail.com','male');
+insert into employees values('M Saziya',26,34000,'cse','hyd','sazia','guru','sazia@gmail.com','female');
+insert into employees values('M Rohith',26,50000,'ece','chennai','rohit','rohit11','rohit@gmail.com','male');
+insert into employees values('P Vedha',31,88000,'cse','hyd','vedha','guessit','vedha@gmail.com','female');
+commit;
+select * from employees;
+
+
+
+Req1: modify sanju city to warangal
+
+query
+-----
+ 
+update employees set city='warangal' where userid='sanju';
+
+
+Req2: modify depak city to karimnagar,age to 31,salary to 44000 and name T SaiDepak
+
+query
+-----
+
+update employees set city='karimnagar',age=31 ,salary=44000 ,name='T SaiDepak' where userid='depak';
+
+
+Req3: modify all employees cities to mumbai
+
+query
+-----
+update employees set Address='mumbai';
+
+
+Req4: vijay wants change his password to apple
+
+query
+------
+update employees set pswd='apple' where userid='vijaya';
+
+Req5: venu wants to change his dept to it and city to delhi
+
+query
+------
+update employees set dept='it' ,city='delhi' where userid='venu';
+
+Req6: give bonus of 2000 to all employees whose salary is below 45000
+
+query
+-----
+
+update employees set salary=salary+2000 where salary<45000;
+
+
+
+TASK 5.2) createing a table for the account
+-------------------------------------
+
+create table account 
+(
+account number      primary key,
+name    varchar(20) not null,
+salary  number      not null
+);
+
+inserting values into account table
+------------------------------------
+
+insert into account(account,name,salary) values (1234,'Depak',8000);
+insert into account(account,name,salary) values (5678,'Ram',9000);
+insert into account(account,name,salary) values (9012,'Harish',11000);
+
+
+
+
+Task5.2 on accounts table:
+
+Req7: Depak wants to deposit 20000 into his account
+
+query
+-----
+update account set salary=salary+20000 where account=1234;
+
+
+Req8: Ram wants to withdraw 5000 from his account
+
+query
+-----
+update account set salary=salary-5000 where account=5678;
+
+
+Req9: Harish wants to transfer 30000 to Depak 
+
+query
+------
+update account set salary=salary -3000,  where account=9012;
+update account set salary=salary+3000 where account=5678;
+
+
+task5.3
+
+step 1
+---------
+createing table for buses
+
+create table buses
+(       id  number primary key,
+	totalSeats number not null unique,
+	amenities  varchar(10) not null,
+	busNumber  varchar(10) not null,
+	busOperator varchar(10) not null,
+	busType	     varchar(10) not null,
+	boardingPoint char(10)   not null,
+	droppingPoint  char(10) not null,
+	operatorName   varchar(10) not null
+);
+
+
+
+Step2: Add the following extra columns to the buses table
+--------------------------------------------------------
+alter table  buses add (arrivalLocation varchar(10) not null ,departureLocation varchar(10),fare varchar(10));
+
+
+Step3: Drop "busType" column from the buses table
+-------------------------------------------------
+
+alter table buses drop column busType;
+
+Step4: Rename "totalSeats" column to "seatsCapacity" 
+------------------------------------------------------
+
+alter table buses rename  column totalSeats to seatsCapacity ;
+
+
+Step5: Modify the "operatorName" column size to 255 characters
+-------------------------------------------------------------
+
+alter table buses modify ( operatorName varchar(255));
+
+
+

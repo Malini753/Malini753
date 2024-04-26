@@ -1,0 +1,69 @@
+Requirement2(Task11.1):	Show the employee name whose getting lowest salary?
+----------------------------------------------------------------------------
+QUREY
+-----
+=> select name from employee	where	salary	=   (	select min(salary) from employee	);
+
+NAME
+------
+Jack
+Mike
+Hannah
+
+
+
+Requirement3:	Show the 2nd highest salary
+-------------------------------------------
+QUREY
+-----
+=> select max(salary) from employee where salary != ( select max(salary) from employee	);
+
+MAX(SALARY)
+-----------
+       5300
+
+
+Requirement4(Task11.2):	Show the 2nd lowset salary
+--------------------------------------------------
+QUREY
+-----
+=>select min(salary) from employee where salary != ( select min(salary) from employee );
+
+MIN(SALARY)
+-----------
+       2500
+
+
+
+Requirement5:   Show the employee name whose getting 2nd highest salary
+-------------------------------------------------------------------------
+QUREY
+------
+	select name from employee where salary = 
+	(
+		select max(salary) from employee where salary != 
+		( 
+			select max(salary) from employee	
+		)
+	);
+
+
+NAME
+------
+Roger
+
+Requirement6(Task11.2):   Show the employee name whose getting 2nd lowest salary
+--------------------------------------------------------------------------------
+QUREY
+------
+	select name from employee where salary = 
+	(
+		select min(salary) from employee where salary != 
+		( 
+			select min(salary) from employee	
+		)
+	);
+
+NAME
+------
+Leo

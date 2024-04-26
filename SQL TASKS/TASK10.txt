@@ -1,0 +1,110 @@
+TASK 10:-
+========
+
+create table employee(
+id number primary key,
+name varchar(6) not null,
+salary number,
+department varchar(9),
+dob date 
+);
+
+insert into employee values(101,'Jack',2000,'HR',to_date('1997-05-19','yyyy-mm-dd'));
+insert into employee values(102,'Jack',3500,'HR',to_date('1997-05-20','yyyy-mm-dd'));
+insert into employee values(103,'Mack',6000,'Developer',to_date('1997-03-10','yyyy-mm-dd'));
+insert into employee values(104,'Peter',4000,'Tester',to_date('1998-07-16','yyyy-mm-dd'));
+insert into employee values(105,'Tom',3000,'HR',to_date('1998-11-03','yyyy-mm-dd'));
+insert into employee values(106,'Leo',2500,'Developer',to_date('1997-10-10','yyyy-mm-dd'));
+insert into employee values(107,'Roger',5300,'Accounts',to_date('1997-06-17','yyyy-mm-dd'));
+insert into employee values(108,'Mike',2000,'Developer',to_date('1998-03-09','yyyy-mm-dd'));
+insert into employee values(109,'Paul',4800,'Developer',to_date('1998-12-28','yyyy-mm-dd'));
+insert into employee values(110,'Hannah',2000,'Accounts',to_date('1999-09-26','yyyy-mm-dd'));
+
+commit;
+
+select * from employee;
+
+Clustered Index:
+---------------
+
+select * from employee where employee_id=102;
+
+explain plan for select * from employee where id=102;
+
+SELECT PLAN_TABLE_OUTPUT FROM TABLE(DBMS_XPLAN.DISPLAY());
+
+"PLAN_TABLE_OUTPUT"
+"Plan hash value: 3217368320"
+" "
+"-------------------------------------------------------------------------------------------"
+"| Id  | Operation                   | Name        | Rows  | Bytes | Cost (%CPU)| Time     |"
+"-------------------------------------------------------------------------------------------"
+"|   0 | SELECT STATEMENT            |             |     1 |    46 |     1   (0)| 00:00:01 |"
+"|   1 |  TABLE ACCESS BY INDEX ROWID| EMPLOYEE    |     1 |    46 |     1   (0)| 00:00:01 |"
+"|*  2 |   INDEX UNIQUE SCAN         | SYS_C004464 |     1 |       |     1   (0)| 00:00:01 |"
+"-------------------------------------------------------------------------------------------"
+" "
+"Predicate Information (identified by operation id):"
+"---------------------------------------------------"
+" "
+"   2 - access(&quot;ID&quot;=102)"
+
+
+Non-Clustered Index:
+--------------------
+
+explain plan for SELECT * FROM employee WHERE name = 'Peter';
+
+SELECT PLAN_TABLE_OUTPUT FROM TABLE(DBMS_XPLAN.DISPLAY());
+
+"PLAN_TABLE_OUTPUT"
+"Plan hash value: 2119105728"
+" "
+"------------------------------------------------------------------------------"
+"| Id  | Operation         | Name     | Rows  | Bytes | Cost (%CPU)| Time     |"
+"------------------------------------------------------------------------------"
+"|   0 | SELECT STATEMENT  |          |     1 |    46 |     3   (0)| 00:00:01 |"
+"|*  1 |  TABLE ACCESS FULL| EMPLOYEE |     1 |    46 |     3   (0)| 00:00:01 |"
+"------------------------------------------------------------------------------"
+" "
+"Predicate Information (identified by operation id):"
+"---------------------------------------------------"
+" "
+"   1 - filter(&quot;NAME&quot;='Peter')"
+" "
+"Note"
+"-----"
+"   - dynamic sampling used for this statement"
+
+
+Convert Non-Clustered Index to Clustered Index:
+-----------------------------------------------
+
+--creating index
+
+create index employee_name_i on employee(name);
+
+explain plan for SELECT * FROM employee WHERE name = 'Jack';
+
+SELECT PLAN_TABLE_OUTPUT FROM TABLE(DBMS_XPLAN.DISPLAY());
+
+"PLAN_TABLE_OUTPUT"
+"Plan hash value: 3344218492"
+" "
+"-----------------------------------------------------------------------------------------------"
+"| Id  | Operation                   | Name            | Rows  | Bytes | Cost (%CPU)| Time     |"
+"-----------------------------------------------------------------------------------------------"
+"|   0 | SELECT STATEMENT            |                 |     2 |    92 |     2   (0)| 00:00:01 |"
+"|   1 |  TABLE ACCESS BY INDEX ROWID| EMPLOYEE        |     2 |    92 |     2   (0)| 00:00:01 |"
+"|*  2 |   INDEX RANGE SCAN          | EMPLOYEE_NAME_I |     2 |       |     1   (0)| 00:00:01 |"
+"-----------------------------------------------------------------------------------------------"
+" "
+"Predicate Information (identified by operation id):"
+"---------------------------------------------------"
+" "
+"   2 - access(&quot;NAME&quot;='Jack')"
+" "
+"Note"
+"-----"
+"   - dynamic sampling used for this statement"
+

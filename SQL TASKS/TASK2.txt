@@ -1,0 +1,39 @@
+1) Creating a table for studenttab1 details.
+------------------------------------------ 
+
+CREATE TABLE studenttab1
+  (
+     roll_number               NUMBER(10)    PRIMARY KEY,
+     driving_license_number    NUMBER(10)    UNIQUE
+  ); 
+
+
+2) Creating a table for studenttab2 details.
+------------------------------------------ 
+
+CREATE TABLE studenttab2
+  (
+     roll_number               NUMBER(10)    PRIMARY KEY,
+     aadhar_card_number        NUMBER(10)    UNIQUE NOT NULL
+  ); 
+
+
+3) (1)Creating a table for studenttab3 details.
+------------------------------------------ 
+
+CREATE TABLE studenttab3
+  (
+     roll_number               NUMBER(10)    PRIMARY KEY,
+     name                      NUMBER(10)    NOT NULL
+  ); 
+3) (2)Creating a table for sscresults details.
+------------------------------------------ 
+
+CREATE TABLE sscresults
+  (
+     hall_ticket_number               NUMBER(10)    PRIMARY KEY,
+     sid                              NUMBER(10)    REFERENCES  studenttab3(roll_number), 
+     total_marks                      NUMBER(20)    NOT NULL CHECK(total_marks>200 AND total_marsks<300)
+  ); 
+
+

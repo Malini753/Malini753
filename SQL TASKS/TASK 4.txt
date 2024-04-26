@@ -1,0 +1,55 @@
+1) Creating a table for employee details.
+------------------------------------------ 
+
+CREATE TABLE emploYEES
+  (
+     id      NUMBER(10) PRIMARY KEY,
+     NAME    CHAR(10) NOT NULL,
+     age     NUMBER NOT NULL CHECK(age>0 AND age<50),
+     address CHAR(10) NOT NULL,
+     salary  FLOAT NOT NULL CHECK(salary>0 AND salary<30000)
+  ); 
+
+
+--->>inserting values into employee table
+------------------------------------------
+
+
+insert into employees(id,name,age,address,salary) values (1,'Ramesh',32,'Ahmedabad',2000.00);
+insert into employees(id,name,age,address,salary) values (2,'Khilan',25,'Delhi',1500.00);
+insert into employees(id,name,age,address,salary) values (3,'Kaushik',23,'Kota',2000.00);
+insert into employees(id,name,age,address,salary) values (4,'Chaitali',25,'Mumbai',6500.00);
+insert into employees(id,name,age,address,salary) values (5,'Hardik',27,'Bhopal',8500.00);
+insert into employees(id,name,age,address,salary) values (6,'komal',22,'MP',4500.00);
+insert into employees(id,name,age,address,salary) values (7,'muffy',24,'Indore',10000.00);
+
+commit;
+
+1.Delete all employees whose belongs to MP address
+
+---->delete from employees where address='MP';
+
+
+2.Delete all employees whose belongs salary is below 5000
+
+------>delete from employees where salary<5000;
+
+3.Delete all employees whose name is Chaitali
+
+---->delete from employees where name='Chaitali';
+
+4.Delete all 6th id row
+
+ ---->delete from employees where id=6;
+
+
+5.Delete all employees (use truncate)
+
+------>truncate table employees;
+
+6.Delete employees table from database
+
+
+------>drop table employees;
+
+
